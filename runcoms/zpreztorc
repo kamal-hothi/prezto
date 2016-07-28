@@ -32,6 +32,11 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
+  'git' \
+  'tmux' \
+  'osx' \
+  'history-substring-search' \
+  'syntax-highlighting' \
   'prompt'
 
 #
@@ -46,17 +51,36 @@ zstyle ':prezto:load' pmodule \
 #
 
 # Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':prezto:module:editor' key-bindings 'emacs'
+zstyle ':prezto:module:editor' key-bindings 'vi'
 
 # Auto convert .... to ../..
 # zstyle ':prezto:module:editor' dot-expansion 'yes'
 
 #
 # Git
-#
+
+zstyle ':prezto:module:git:log:context' format 'medium'
+
+zstyle ':prezto:module:git:info'  verbose yes
+zstyle ':prezto:module:git:info:action' format '%F{7}:%f%%B%F{9}%s%f%%b'
+zstyle ':prezto:module:git:info:added' format ' %%B%F{2}✚%f%%b'
+zstyle ':prezto:module:git:info:ahead' format ' %%B%F{13}⬆%f%%b'
+zstyle ':prezto:module:git:info:behind' format ' %%B%F{13}⬇%f%%b'
+zstyle ':prezto:module:git:info:branch' format ' %%B%F{2}%b%f%%b'
+zstyle ':prezto:module:git:info:commit' format ' %%B%F{3}%.7c%f%%b'
+zstyle ':prezto:module:git:info:deleted' format ' %%B%F{1}✖%f%%b'
+zstyle ':prezto:module:git:info:modified' format ' %%B%F{4}✱%f%%b'
+zstyle ':prezto:module:git:info:position' format ' %%B%F{13}%p%f%%b'
+zstyle ':prezto:module:git:info:renamed' format ' %%B%F{5}➜%f%%b'
+zstyle ':prezto:module:git:info:stashed' format ' %%B%F{6}✭%f%%b'
+zstyle ':prezto:module:git:info:unmerged' format ' %%B%F{3}═%f%%b'
+zstyle ':prezto:module:git:info:untracked' format ' %%B%F{7}◼%f%%b'
+zstyle ':prezto:module:git:info:keys' format \
+  'status' '$(coalesce "%b" "%p" "%c")%s%A%B%S%a%d%m%r%U%u'
+
 
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
-# zstyle ':prezto:module:git:status:ignore' submodules 'all'
+zstyle ':prezto:module:git:status:ignore' submodules 'all'
 
 #
 # GNU Utility
@@ -135,7 +159,7 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 # Set syntax highlighting styles.
 # zstyle ':prezto:module:syntax-highlighting' styles \
 #   'builtin' 'bg=blue' \
-#   'command' 'bg=blue' \
+#   'command' 'bg=gray' \
 #   'function' 'bg=blue'
 
 #
@@ -143,13 +167,13 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 #
 
 # Auto set the tab and window titles.
-# zstyle ':prezto:module:terminal' auto-title 'yes'
+zstyle ':prezto:module:terminal' auto-title 'yes'
 
 # Set the window title format.
-# zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
+zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
 
 # Set the tab title format.
-# zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
+zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
 
 #
 # Tmux
@@ -162,4 +186,4 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 # Integrate with iTerm2.
-# zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+#zstyle ':prezto:module:tmux:iterm' integrate 'yes'
